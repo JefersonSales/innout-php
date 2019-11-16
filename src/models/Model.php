@@ -14,17 +14,17 @@ class Model
   {
     if ($arr) {
       foreach ($arr as $key => $value) {
-        $this->set($key, $value);
+        $this->$key = $value;
       }
     }
   }
 
-  public function get($arr)
+  public function __get($key)
   {
     return $this->values[$key];
   }
 
-  public function set($key, $values)
+  public function __set($key, $values)
   {
     $this->values[$key] = $values;
   }
